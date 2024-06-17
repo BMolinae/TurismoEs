@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Servicio</title>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="{% static 'servicios/styles.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Agregar Servicio</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_precio">Precio:</label>
+                <input type="number" id="id_precio" name="precio" required>
+            </div>
+            <div class="form-group">
+                <label for="id_descripcion">Descripción:</label>
+                <textarea id="id_descripcion" name="descripcion" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_foto">Foto:</label>
+                <input type="file" id="id_foto" name="foto" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

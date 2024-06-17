@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Servicios</title>
+    <link rel="stylesheet" href="{% static 'servicios/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Nuestros Servicios</h1>
+        <a href="{% url 'agregar_servicio' %}">Agregar nuevo servicio</a>
+        <div class="servicios-list">
+            {% for servicio in servicios %}
+            <div class="servicio">
+                <img src="{{ servicio.foto.url }}" alt="{{ servicio.descripcion }}">
+                <div class="servicio-info">
+                    <h2>{{ servicio.descripcion }}</h2>
+                    <p>Precio: ${{ servicio.precio }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p>No hay servicios disponibles.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
